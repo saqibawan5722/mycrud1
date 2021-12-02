@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+
+    <!-- Here Form Used -->
+    <div class="col-6 text-center">    
+      <form>
+        <div style="border: 4px solid black; width: 300px; padding: 10px;">
+        <h1 style="color: burlywood;">Add Product</h1>
+        <div class="form-group">
+          <input type="text" placeholder="fname" #val1><br><br>
+          <input type="text" placeholder="lname" #val2><br><br>
+          <input type="text" placeholder="lname" #val3><br><br>
+          <button type="button" class="btn btn-success" (click)="onAdd(val1,val2,val3)"> {{editMode? 'Update' : 'Add' }}</button>
+          <button type="button" class="btn btn-success" (click)="save()" style="margin-left: 5px;">Save</button>
+          <button type="button" class="btn btn-success" (click)="Fetch()" style="margin-left: 5px;">Fetch</button>
+        </div>
+        </div>
+      </form>
+
+    </div>
+    
+
+    <!-- Here Table Used -->
+    <div class="col-6">
+      <table class="table" style="border: 2px solid black; width: 600px;">
+        <thead>
+          <tr style="background-color: cyan;">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Nick Name</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr style="border: aquamarine; border: 2px solid black;" *ngFor="let data of adds; index as i">  
+            <th scope="row">{{i+1}}</th>
+            <td>{{data.fname}}</td>
+            <td>{{data.lname}}</td>
+            <td>{{data.nname}}</td>
+            <td (click)="onDel(i)"><a class="btn btn-success">delete</a></td>
+            <td (click)="onEdit(i)"><a class="btn btn-success">Edit</a></td>
+          </tr>            
+        </tbody>
+      </table>
+
+    </div>
+    
+  </div>
+</div>
